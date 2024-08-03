@@ -1,5 +1,7 @@
 // Made by x.com/quasa0 on August 3, 2024 using Claude Sonnet 3.5 
 
+console.log("Meow")
+
 async function clickElement(xpath) {
     return new Promise((resolve, reject) => {
         var element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -17,16 +19,16 @@ async function clickElement(xpath) {
 function isCheckboxChecked(xpath) {
     var element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     if (element) {
-        let isChecked = element.hasAttribute('checked') || 
-                        element.getAttribute('aria-checked') === 'true' ||
-                        element.classList.contains('checked');
+        let isChecked = element.hasAttribute('checked') ||
+            element.getAttribute('aria-checked') === 'true' ||
+            element.classList.contains('checked');
 
         if (!isChecked) {
             let parentCheckbox = element.closest('tp-yt-paper-checkbox');
             if (parentCheckbox) {
-                isChecked = parentCheckbox.hasAttribute('checked') || 
-                            parentCheckbox.getAttribute('aria-checked') === 'true' ||
-                            parentCheckbox.classList.contains('checked');
+                isChecked = parentCheckbox.hasAttribute('checked') ||
+                    parentCheckbox.getAttribute('aria-checked') === 'true' ||
+                    parentCheckbox.classList.contains('checked');
             }
         }
 
